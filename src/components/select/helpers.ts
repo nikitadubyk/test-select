@@ -14,16 +14,19 @@ const white = "#FFFFFF";
 const purple = "#800080";
 const greyAction = "#DCDCDC";
 const textColor = "#130817E5";
-const greyDisable = "#8F8F8F";
+const grey = "#CCCCCC";
+const greyDisable = "#E6E6E6";
+const greyDisableText = "#8F8F8F";
+const purpleFocused = "#6E328C";
 
 const getBorderColor = (
   state: ControlProps<OptionType>,
   error?: boolean
 ): string => {
   if (error) return red;
-  if (state.isFocused) return "#6E328C";
-  if (state.isDisabled) return "#E6E6E6";
-  return "#CCC";
+  if (state.isFocused) return purpleFocused;
+  if (state.isDisabled) return greyDisable;
+  return grey;
 };
 
 const getBoxShadow = (
@@ -67,7 +70,7 @@ export const getSelectStyles = (error?: boolean) => ({
     fontWeight: 500,
     fontSize: "15px",
     lineHeight: "22px",
-    color: state.isDisabled ? greyDisable : textColor,
+    color: state.isDisabled ? greyDisableText : textColor,
   }),
   indicatorSeparator: (css: CSSObjectWithLabel) => ({
     ...css,
