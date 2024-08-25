@@ -8,11 +8,19 @@ import {
 
 import { OptionType } from "./types";
 
+const red = "#E8433D";
+const black = "#000000";
+const white = "#FFFFFF";
+const purple = "#800080";
+const greyAction = "#DCDCDC";
+const textColor = "#130817E5";
+const greyDisable = "#8F8F8F";
+
 const getBorderColor = (
   state: ControlProps<OptionType>,
   error?: boolean
 ): string => {
-  if (error) return "#E8433D";
+  if (error) return red;
   if (state.isFocused) return "#6E328C";
   if (state.isDisabled) return "#E6E6E6";
   return "#CCC";
@@ -22,8 +30,8 @@ const getBoxShadow = (
   state: ControlProps<OptionType>,
   error?: boolean
 ): string => {
-  if (error) return "#E8433D";
-  if (state.isFocused) return "0 0 0 1px #800080";
+  if (error) return red;
+  if (state.isFocused) return `0 0 0 1px ${purple}`;
   return "unset";
 };
 
@@ -33,11 +41,11 @@ export const getSelectStyles = (error?: boolean) => ({
     state: ControlProps<OptionType>
   ): CSSObjectWithLabel => ({
     ...css,
-    background: "#fff",
+    background: white,
     boxShadow: getBoxShadow(state, error),
     borderColor: getBorderColor(state, error),
     "&:hover": {
-      borderColor: error ? "#E8433D" : "#800080",
+      borderColor: error ? red : purple,
     },
   }),
   option: (
@@ -45,10 +53,10 @@ export const getSelectStyles = (error?: boolean) => ({
     state: OptionProps<OptionType>
   ): CSSObjectWithLabel => ({
     ...css,
-    color: "#000",
-    backgroundColor: state.isSelected ? "#DCDCDC" : "#FFF",
+    color: black,
+    backgroundColor: state.isSelected ? greyAction : white,
     "&:hover": {
-      backgroundColor: "#DCDCDC",
+      backgroundColor: greyAction,
     },
   }),
   placeholder: (
@@ -59,7 +67,7 @@ export const getSelectStyles = (error?: boolean) => ({
     fontWeight: 500,
     fontSize: "15px",
     lineHeight: "22px",
-    color: state.isDisabled ? "#8F8F8F" : "#130817E5",
+    color: state.isDisabled ? greyDisable : textColor,
   }),
   indicatorSeparator: (css: CSSObjectWithLabel) => ({
     ...css,
