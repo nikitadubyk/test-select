@@ -9,15 +9,15 @@ import {
 import { OptionType } from "./types";
 
 const red = "#E8433D";
+const grey = "#CCCCCC";
 const black = "#000000";
 const white = "#FFFFFF";
 const purple = "#800080";
 const greyAction = "#DCDCDC";
 const textColor = "#130817E5";
-const grey = "#CCCCCC";
 const greyDisable = "#E6E6E6";
-const greyDisableText = "#8F8F8F";
 const purpleFocused = "#6E328C";
+const greyDisableText = "#8F8F8F";
 
 const getBorderColor = (
   state: ControlProps<OptionType>,
